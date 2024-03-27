@@ -1,7 +1,5 @@
 package com.dracul.currencyrate.data
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -16,7 +14,6 @@ data class DailyData(
         }.toList()
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     fun getDate(): LocalDateTime? {
 
         val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssXXX")

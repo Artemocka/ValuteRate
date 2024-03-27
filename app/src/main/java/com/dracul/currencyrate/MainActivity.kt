@@ -11,10 +11,10 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.core.view.updatePaddingRelative
 import androidx.lifecycle.lifecycleScope
-import com.dracul.currencyrate.api.ValutApi
+import com.dracul.currencyrate.api.ValuteApi
 import com.dracul.currencyrate.data.DailyData
 import com.dracul.currencyrate.databinding.ActivityMainBinding
-import com.example.technotestvk.recycler.ValuteAdapter
+import com.dracul.currencyrate.recycler.ValuteAdapter
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -28,7 +28,7 @@ import java.time.format.DateTimeFormatter
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private val valutApi = getRetrofitClient().create(ValutApi::class.java)
+    private val valuteApi = getRetrofitClient().create(ValuteApi::class.java)
     private val adapter = ValuteAdapter()
     private val internetProblems = MutableStateFlow(false)
     private val isProgress = MutableStateFlow(false)
@@ -104,7 +104,7 @@ class MainActivity : AppCompatActivity() {
             try {
                 isProgress.value = true
                 internetProblems.value = false
-                dailyData = valutApi.getData()
+                dailyData = valuteApi.getData()
                 date = dailyData?.getDate()
                 if (internetProblems.value) internetProblems.value = false
 
@@ -113,7 +113,7 @@ class MainActivity : AppCompatActivity() {
                 internetProblems.value = true
                 withContext(Dispatchers.Main) {
                     binding.list.isVisible = false
-                    Snackbar.make(binding.root, "Oops, something went wrong!", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(binding.root, getString(R.string.wrong), Snackbar.LENGTH_LONG).show()
                 }
             }
 

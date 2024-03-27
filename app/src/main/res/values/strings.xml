@@ -1,4 +1,7 @@
 <resources>
-    <string name="app_name">Currency rate</string>
+    <string name="app_name">Valute rate</string>
     <string name="updated">Updated</string>
+    <string name="refresh">Refresh</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="wrong">Oops, something went wrong!</string>
 </resources>

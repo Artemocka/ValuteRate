@@ -43,14 +43,13 @@
             android:id="@+id/iv_no_internet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="No internet connection"
             android:src="@drawable/ic_internet_off"
             />
         <TextView
             android:id="@+id/tv_no_internet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="No internet connection"
+            android:text="@string/no_internet_connection"
             android:textSize="24sp"
             />
         <com.google.android.material.button.MaterialButton
@@ -58,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Refresh"
+            android:text="@string/refresh"
             />
     </LinearLayout>
 

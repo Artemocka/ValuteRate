@@ -1,4 +1,4 @@
-package com.example.technotestvk.recycler
+package com.dracul.currencyrate.recycler
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -7,12 +7,9 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.dracul.currencyrate.R
 import com.dracul.currencyrate.data.Valute
 import com.dracul.currencyrate.databinding.ItemValuteBinding
-import com.dracul.currencyrate.recycler.ProductDiffCallback
 import com.dracul.currencyrate.roundOffDecimal
-import kotlin.math.roundToInt
 
 
 class ValuteAdapter : ListAdapter<Valute, ValuteAdapter.ViewHolder>(ProductDiffCallback()) {
@@ -35,6 +32,7 @@ class ValuteAdapter : ListAdapter<Valute, ValuteAdapter.ViewHolder>(ProductDiffC
         private lateinit var item: Valute
 
 
+        @SuppressLint("ResourceType")
         fun bind(item: Valute) {
             this.item = item
             binding.run {
