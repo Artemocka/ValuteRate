@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Currency rate"
+rootProject.name = "Valute Rate"
 include(":app")
  
