@@ -1,6 +1,7 @@
 package com.dracul.currencyrate
 
 import android.os.Bundle
+import android.os.Looper
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -36,6 +37,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
         loadData()
@@ -80,6 +82,15 @@ class MainActivity : AppCompatActivity() {
 
         WindowCompat.setDecorFitsSystemWindows(window, false)
         setContentView(binding.root)
+
+        val handler = android.os.Handler(Looper.getMainLooper())
+        val runnableCode: Runnable = object : Runnable {
+            override fun run() {
+                loadData()
+                handler.postDelayed(this, 30000)
+            }
+        }
+        handler.post(runnableCode)
     }
 
     private fun setDateToToolbar() {
